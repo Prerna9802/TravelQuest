@@ -1,0 +1,62 @@
+<div class="container mt-4">
+    <h2>Book Your Tickets</h2>
+    <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" required [(ngModel)]="bookingData.name" name="name" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" required [(ngModel)]="bookingData.email" name="email" />
+      </div>
+  
+      <div class="mb-3 position-relative">
+        <label for="destination" class="form-label">Destination</label>
+        <div class="dropdown-wrapper">
+          <select id="destination" class="form-select" required [(ngModel)]="bookingData.destination" name="destination">
+            <option value="" disabled selected>Select your destination</option>
+            <option *ngFor="let dest of destinations" [value]="dest">{{ dest }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="date" class="form-label">Travel Date</label>
+        <input type="date" id="date" class="form-control" required [(ngModel)]="bookingData.date" name="date" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="tickets" class="form-label">Number of Tickets</label>
+        <input type="number" id="tickets" class="form-control" required [(ngModel)]="bookingData.tickets" name="tickets" min="1" />
+      </div>
+  
+      <div class="mb-3 position-relative">
+        <label for="travelClass" class="form-label">Travel Class</label>
+        <div class="dropdown-wrapper">
+          <select id="travelClass" class="form-select" required [(ngModel)]="bookingData.travelClass" name="travelClass">
+            <option *ngFor="let travelClass of travelClasses" [value]="travelClass">{{ travelClass }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+  
+    <div *ngIf="confirmationMessage" class="alert alert-success mt-3">
+      {{ confirmationMessage }}
+    </div>
+  
+    <div *ngIf="showSummary" class="mt-4">
+      <h4>Booking Summary</h4>
+      <ul>
+        <li><strong>Name:</strong> {{ bookingData.name }}</li>
+        <li><strong>Email:</strong> {{ bookingData.email }}</li>
+        <li><strong>Destination:</strong> {{ bookingData.destination }}</li>
+        <li><strong>Travel Date:</strong> {{ bookingData.date }}</li>
+        <li><strong>Number of Tickets:</strong> {{ bookingData.tickets }}</li>
+        <li><strong>Class:</strong> {{ bookingData.travelClass }}</li>
+      </ul>
+    </div>
+  </div>
+  

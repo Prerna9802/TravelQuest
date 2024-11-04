@@ -1,0 +1,75 @@
+.about {
+    padding: 50px;
+    background: #f9f9f9;
+    margin-bottom: 150px;
+}
+
+.main-txt {
+    text-align: center;
+}
+
+.main-txt h1 {
+    margin-bottom: 40px; 
+}
+
+.about .card {
+    border-radius: 10px;
+}
+
+.about .card img {
+    border-radius: 10px;
+    width: 100%; 
+    height: auto; 
+}
+
+.about h1 {
+    font-weight: bold;
+}
+
+.about h2 {
+    font-weight: 600;    
+}
+
+.about p {
+    font-weight: 600;
+    text-align: justify;
+    margin-bottom: 20px; 
+    line-height: 1.6; 
+    color: #333; 
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+#about-btn {
+    display: inline-block; 
+    width: 150px; 
+    height: 38px; 
+    border: none;
+    border-radius: 5px;
+    background: #ffa500;
+    color: white;    
+    font-weight: 550;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin-top: 20px; 
+    margin-left: 20px;
+    text-align: center; 
+}
+
+#about-btn:hover {
+    width: 170px;
+}
+
+#aboutus span {
+    color: #ffa500;
+}
+
+@media (max-width: 765px) {
+    .about {
+        padding: 0;
+    }
+}

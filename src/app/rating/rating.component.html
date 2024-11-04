@@ -1,0 +1,8 @@
+<div class="star-container">
+    <div class="crop" [style.width.px]="starWidth" (click)="onClick()" [title]="rating">
+      <fa-icon *ngFor="let star of [1, 2, 3, 4, 5]" 
+               [icon]="faStar" 
+               [ngClass]="getColorClass()"></fa-icon>
+    </div>
+  </div>
+  

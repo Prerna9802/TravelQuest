@@ -1,0 +1,30 @@
+.star-container {
+    display: flex;
+    justify-content: center; 
+    width: 100px; 
+}
+
+.crop{
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    color: gold;    
+}
+
+div{
+    cursor: pointer;
+}
+
+
+.high-rating {
+    color: green; 
+}
+
+.medium-rating {
+    color: orange; 
+}
+
+.low-rating {
+    color: red; 
+}
+  

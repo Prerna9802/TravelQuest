@@ -1,0 +1,50 @@
+<div class="container mt-4 travel">
+    <div class="main-txt">
+        <h1 id="travel-logo">Travel <span>Cities</span></h1>
+    </div>
+
+    <div class="mb-3">
+        <label for="filter" class="form-label">Filter by Destination Type:</label>
+        <select id="filter" class="form-select" [(ngModel)]="selectedType">
+            <option value="">All</option>
+            <option value="Cultural Heritage">Cultural Heritage</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Nature">Nature</option>
+            <option value="Family">Family</option>            
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="search" class="form-label">Search Cities:</label>
+        <input
+            type="text"
+            id="search"
+            class="form-control"
+            [(ngModel)]="searchTerm"
+            placeholder="Enter city name"
+        />
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let city of filteredCities; let i = index">
+            <div class="city-card mb-4">
+                <div class="city-description card-body">
+                    <h5 class="card-title" (click)="goToCityDetail(city.id)" style="cursor: pointer;">{{ city.description | formatDescription }}</h5>
+                    <p class="places-to-see">Places to See: {{ city.placesToSee.join(', ') }}</p>
+                    <div class="parent-container">
+                    <app-rating [rating]="city.rating" (ratingClicked)="toggleRatingMessage(city.id, city.rating)"></app-rating>
+                    <p *ngIf="clickedRatingMessages[city.id]">{{ clickedRatingMessages[city.id] }}</p>
+                    </div>
+                    <div class="button-container">
+                        <button id="show-image-btn" class="btn" (click)="toggleImage(i)">
+                            {{ getButtonText(i) }}
+                        </button>
+                    </div>
+                    <div *ngIf="showImages[i]" class="mt-2">
+                        <img [src]="city.image" alt="{{ city.description }}" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

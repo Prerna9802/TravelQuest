@@ -1,0 +1,17 @@
+<div *ngIf="cityData" class="city-detail-card">
+    <button class="btn btn-secondary mb-3" (click)="goBack()">Back to Travel</button> <!-- Back button -->
+    <img [src]="cityData.image" alt="{{ cityData.description }}" />
+    <h1>{{ cityData.description }}</h1>
+    <p>Type: {{ cityData.type }}</p>
+    <div class="rating-container">
+        <p>Rating: 
+            <app-rating [rating]="cityData.rating" 
+                        (ratingClicked)="handleRatingClick('The rating clicked is ' + cityData.rating)">
+            </app-rating>
+        </p>
+    </div>
+    <h3>Places to See:</h3>
+    <ul class="places-list">
+        <li *ngFor="let place of cityData.placesToSee">{{ place }}</li>
+    </ul>
+</div>
